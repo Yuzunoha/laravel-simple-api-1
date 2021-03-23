@@ -17,3 +17,5 @@ RUN { \
   echo '[client]'; \
   echo 'default-character-set=utf8'; \
   } > /etc/mysql/conf.d/my.cnf
+
+COPY /docker-entrypoint-initdb.d/init.sql /docker-entrypoint-initdb.d/init.sql
