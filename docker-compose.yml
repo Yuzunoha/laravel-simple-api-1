@@ -7,8 +7,8 @@ services:
         DOCKER_UID: ${DOCKER_UID:-1000}
     volumes:
       - ./html:/var/www/html
-    ports:
-      - 10580:80
+    environment:
+      - VIRTUAL_HOST=laravel-api.localhost
   db:
     build: ./docker/db
     environment:
@@ -26,7 +26,10 @@ services:
       - PMA_HOST=db
       - PMA_USER=root
       - PMA_PASSWORD=root
-    ports:
-      - 10581:80
+      - VIRTUAL_HOST=pma.laravel-api.localhost
     volumes:
       - ./docker/phpmyadmin/sessions:/sessions
+networks:
+  default:
+    external:
+      name: nginx-proxy
