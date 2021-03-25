@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware(['cors'])->group(function () {
     Route::get('/test', 'TestController@index');
     Route::get('/pref', 'PrefController@index');
+    Route::get('/pref/random-one', 'PrefController@randomOne');
 });

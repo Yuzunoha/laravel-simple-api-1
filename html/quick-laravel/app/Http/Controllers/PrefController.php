@@ -12,4 +12,10 @@ class PrefController extends Controller
         $data = DB::select("SELECT * FROM kvs1");
         return $this->responseJsonUnescapedUnicode($data);
     }
+
+    function randomOne(Request $request)
+    {
+        $data = 'random oneです';
+        return $this->responseJsonUnescapedUnicode($data);
+    }
 }
